@@ -11,7 +11,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
     private String title;
     private String isbn;
     //  Add Publisher use a @OneToOne relationship.
@@ -29,18 +29,18 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(Id, book.Id);
+        return Objects.equals(id, book.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "Id=" + Id +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", publisher='" + publisher + '\'' +
@@ -56,6 +56,15 @@ public class Book {
         this.publisher = publisher;
 
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Book setId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public Book(String title, String isbn, Publisher publisher, Set<Author> authors) {
